@@ -1,0 +1,17 @@
+price = int(input("Введите цену улсуги ведьмака: "))
+
+coin = [25, 10, 5, 1]
+total = 0
+i = 0
+
+while price > 0:
+    while price >= coin[i]:
+        price -= coin[i]
+        total += 1
+
+    i = i + 1
+    if i == 4:
+        break
+
+print(f"Минимальное количество монет: {total}")
+
