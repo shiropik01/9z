@@ -1,1 +1,43 @@
+print("Программа, которая вычисляетколичество цифр 3")
+print("Введите натуральное число:")
+try:
+    num = int(input())
+    if num <= 0:
+        print("Число должно быть натуральным")
+    else:
+        digits = [int(d) for d in str(num)]
+        last = digits[-1]
 
+        count_3 = 0
+        count_last = 0
+        count_all = 0
+        sum_5 = 0
+        prod_7 = 1
+        count_0_5 = 0
+
+        for d in digits:
+            if d == 3:
+                count_3 += 1
+            if d == last:
+                count_last += 1
+            if d % 2 == 0:
+                count_all += 1
+            if d > 5:
+                sum_5 += d
+            if d > 7:
+                prod_7 *= d
+            if d == 0 or d == 5:
+                count_0_5 += 1
+
+        if prod_7 == 1 and not any(d > 7 for d in digits):
+            prod_7 = 1
+
+        print("Сколько чисел 3 в числе = ", count_3)
+        print("Сколько раз в нём встречается последняя цифра = ",count_last)
+        print("Количество чётных цифр = ",count_all)
+        print("Сумма его цифр, больших пяти = ",sum_5)
+        print("Произведение цифр, больших семи = ",prod_7)
+        print("Сколько раз в нём встречаются цифры 0 и 5 (всего суммарно) = ",count_0_5)
+
+except ValueError:
+    print("Ошибка!")
